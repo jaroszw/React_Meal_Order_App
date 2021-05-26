@@ -23,6 +23,7 @@ const Cart = (props) => {
   const orderHandler = () => {
     setCheckout(true);
   };
+  
 
   const cartItems = (
     <ul className={classes["cart-items"]}>
