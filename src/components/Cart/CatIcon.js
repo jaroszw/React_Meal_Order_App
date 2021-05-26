@@ -1,5 +1,3 @@
-import classes from "./Cart.module.css";
-
 const CartIcon = () => {
   return (
     <svg
