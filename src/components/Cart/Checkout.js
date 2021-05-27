@@ -1,5 +1,5 @@
-import classes from './Checkout.module.css';
-import useInput from '../../hooks/use-input';
+import classes from "./Checkout.module.css";
+import useInput from "../../hooks/use-input";
 
 const Checkout = (props) => {
   const {
@@ -8,7 +8,7 @@ const Checkout = (props) => {
     isNotValid: nameEnteredValueIsNotValid,
     onBlur: nameOnBlureCheckHandler,
     onChange: nameOnChangeHandler,
-  } = useInput((value) => value.trim() !== '');
+  } = useInput((value) => value.trim() !== "");
 
   const {
     value: streetEnteredValue,
@@ -16,7 +16,7 @@ const Checkout = (props) => {
     isNotValid: streetEnteredValueIsNotValid,
     onBlur: streetOnBlureCheckHandler,
     onChange: streetOnChangeHandler,
-  } = useInput((value) => value.trim() !== '');
+  } = useInput((value) => value.trim() !== "");
 
   const {
     value: postalCodeEnteredValue,
@@ -32,7 +32,7 @@ const Checkout = (props) => {
     isNotValid: cityEnteredValueIsNotValid,
     onBlur: cityOnBlureCheckHandler,
     onChange: cityOnChangeHandler,
-  } = useInput((value) => value.trim() !== '');
+  } = useInput((value) => value.trim() !== "");
 
   const nameInputClass = !nameEnteredValueIsNotValid
     ? classes.control
@@ -52,12 +52,12 @@ const Checkout = (props) => {
 
   const submitHandler = (e) => {
     e.preventDefault();
-    console.log(
-      nameEnteredValue,
-      streetEnteredValue,
-      postalCodeEnteredValue,
-      cityEnteredValue
-    );
+    props.onConfirm({
+      name: nameEnteredValue,
+      street: streetEnteredValue,
+      postalCode: postalCodeEnteredValue,
+      city: cityEnteredValue,
+    });
   };
 
   let formIsValid = false;
